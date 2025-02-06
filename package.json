@@ -1,0 +1,11 @@
+{
+  "name": "postcss-dynamic-metrics",
+  "version": "0.0.1",
+  "description": "PostCSS plugin to support dynamic metrics for font-size pixel declarations",
+  "author": "Nikolay Frantsev <nikolay@frantsev.me>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NikolayFrantsev/postcss-dynamic-metrics"
+  }
+}
