@@ -14,6 +14,19 @@ a {
 b {
   font-size: 2em;
 }
+
+c {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+d {
+  font-size: 0;
+}
+
+e {
+  font-size: inherit;
+}
 ```
 
 Output:
@@ -26,6 +39,20 @@ a {
 
 b {
   font-size: 2em;
+}
+
+c {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+d {
+  font-size: 0;
+}
+
+e {
+  font-size: inherit;
+  letter-spacing: inherit;
 }
 ```
 

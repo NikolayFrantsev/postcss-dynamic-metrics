@@ -12,20 +12,31 @@ module.exports = ({
 } = {}) => ({
   postcssPlugin: 'postcss-dynamic-metrics',
 
-  Declaration(node, { Declaration }) {
-    if (node.prop === 'font-size'
-      && /^\d+px$/.test(node.value)
-    ) {
-      const z = Number.parseInt(node.value, 10);
+  Declaration: {
 
-      const letterSpacing = a + b * (Math.E ** (c * z));
+    'font-size': (node, { Declaration }) => {
+      if (node.parent.nodes.some((item) => item.prop === 'letter-spacing')) return;
 
-      const declaration = new Declaration({
-        prop: 'letter-spacing',
-        value: `${letterSpacing.toFixed(precision)}em`,
-      });
-      node.after(declaration);
-    }
+      const insert = (value) => {
+        const declaration = new Declaration({
+          prop: 'letter-spacing',
+          value,
+        });
+
+        node.after(declaration);
+      };
+
+      if (/^[1-9]\d+px$/.test(node.value)) {
+        const z = Number.parseInt(node.value, 10);
+        const letterSpacing = a + b * (Math.E ** (c * z));
+
+        const value = `${letterSpacing.toFixed(precision)}em`;
+        insert(value);
+      } else if (node.value === 'inherit') {
+        insert(node.value);
+      }
+    },
+
   },
 });
 
