@@ -26,7 +26,7 @@ module.exports = ({
         node.after(declaration);
       };
 
-      if (/^[1-9]\d+px$/.test(node.value)) {
+      if (/^[1-9]\d*px$/.test(node.value)) {
         const z = Number.parseInt(node.value, 10);
         const letterSpacing = a + b * (Math.E ** (c * z));
 

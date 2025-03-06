@@ -27,6 +27,10 @@ d {
 e {
   font-size: inherit;
 }
+
+f {
+  font-size: 9px;
+}
 ```
 
 Output:
@@ -53,6 +57,11 @@ d {
 e {
   font-size: inherit;
   letter-spacing: inherit;
+}
+
+f {
+  font-size: 9px;
+  letter-spacing: 0.016em;
 }
 ```
 
